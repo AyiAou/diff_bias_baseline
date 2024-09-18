@@ -161,7 +161,7 @@ plt.plot(range(1, len(test_accuracy_history) + 1), test_accuracy_history, label=
 plt.title('Learning Curve')
 plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
-plt.xticks(range(1, len(train_accuracy_history) + 1))  # 确保每个 epoch 都有标签
+plt.xticks(range(1, len(train_accuracy_history) + 1))
 plt.grid()
 plt.legend()
-plt.savefig('./learning_curve.png')  # 保存学习曲线图
+plt.savefig('./learning_curve.png') 

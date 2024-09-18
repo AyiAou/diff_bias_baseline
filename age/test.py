@@ -106,16 +106,14 @@ plt.plot(steps, accuracies, marker='o')
 plt.title('Age Step-wise Accuracy')
 plt.xlabel('Step')
 plt.ylabel('Accuracy')
-plt.xticks(steps)  # 确保每个步骤都有标签
+plt.xticks(steps)  
 plt.grid()
 plt.show()
-plt.savefig('age_accuracy_step.png')  # 保存为 PNG 格式
+plt.savefig('age_accuracy_step.png')  
 print("图像已保存为 age_accuracy_step.png")
 
-# 将 step_accuracy 转换为 DataFrame
 accuracy_df = pd.DataFrame.from_dict(step_accuracy, orient='index')
 accuracy_df.reset_index(inplace=True)
 accuracy_df.rename(columns={'index': 'Step'}, inplace=True)
 
-# 保存为 CSV 文件
 accuracy_df.to_csv('age_step_accuracy.csv', index=False)

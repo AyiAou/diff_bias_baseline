@@ -78,14 +78,12 @@ def load_image(path, size=None):
 
     return img
 
-# 加载模型
 model_id = "./stable-diffusion-v1-5"
 pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
 pipe = pipe.to("cuda")
 pipe.scheduler = DDIMScheduler.from_config(pipe.scheduler.config)
 
-# 注册 hook 到 U-Net 模型
-mid_block = pipe.unet.mid_block  # 访问 U-Net 模型
+mid_block = pipe.unet.mid_block  
 hook = mid_block.register_forward_hook(forward_hook)
 
 folder_path = './data/'
